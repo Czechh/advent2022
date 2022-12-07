@@ -1,50 +1,50 @@
 package main
 
 import (
-    "fmt"
-    "io/ioutil"
-    "log"
-    "strings"
-    "strconv"
-    "sort"
+	"fmt"
+	"io/ioutil"
+	"log"
+	"sort"
+	"strconv"
+	"strings"
 )
 
 func main() {
 
-    content, err := ioutil.ReadFile("1.txt")
+	content, err := ioutil.ReadFile("1.txt")
 
-     if err != nil {
-          log.Fatal(err)
-     }
+	if err != nil {
+		log.Fatal(err)
+	}
 
-    input := string(content)
+	input := string(content)
 
-    fmt.Println(input)
+	fmt.Println(input)
 
-    var sums []int
+	var sums []int
 
-    for _, s := range strings.Split(input, "\n\n") {
-        // parts := strings.Split(s, "\n")
-        // fmt.Println(parts)
+	for _, s := range strings.Split(input, "\n\n") {
+		// parts := strings.Split(s, "\n")
+		// fmt.Println(parts)
 
-        elfSum := 0
+		elfSum := 0
 
-        for _, cal := range strings.Split(s, "\n") {
-            n , err := strconv.Atoi(cal)
+		for _, cal := range strings.Split(s, "\n") {
+			n, err := strconv.Atoi(cal)
 
-            if err != nil {
-                log.Fatal(err)
-            }
+			if err != nil {
+				log.Fatal(err)
+			}
 
-            elfSum += n;
-        }
+			elfSum += n
+		}
 
-        sums = append(sums, elfSum)
-    }
-    sort.Ints(sums)
-    result := 0
-    for _, val := range sums[len(sums)-3:] {
-        result += val
-    }
-    fmt.Println(result)
+		sums = append(sums, elfSum)
+	}
+	sort.Ints(sums)
+	result := 0
+	for _, val := range sums[len(sums)-3:] {
+		result += val
+	}
+	fmt.Println(result)
 }

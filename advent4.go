@@ -1,80 +1,80 @@
 package main
 
 import (
-    "fmt"
-    "io/ioutil"
-    "log"
-    "strings"
-    "strconv"
+	"fmt"
+	"io/ioutil"
+	"log"
+	"strconv"
+	"strings"
 )
 
 func one(input string) {
-    result := 0
+	result := 0
 
-    for _, line := range strings.Split(input, "\n") {
-        pairs := strings.Split(line, ",")
+	for _, line := range strings.Split(input, "\n") {
+		pairs := strings.Split(line, ",")
 
-        pair0 := strings.Split(pairs[0], "-")
-        pair1 := strings.Split(pairs[1], "-")
+		pair0 := strings.Split(pairs[0], "-")
+		pair1 := strings.Split(pairs[1], "-")
 
-        p00, _ := strconv.Atoi(pair0[0])
-        p01, _ := strconv.Atoi(pair0[1])
+		p00, _ := strconv.Atoi(pair0[0])
+		p01, _ := strconv.Atoi(pair0[1])
 
-        p10, _ := strconv.Atoi(pair1[0])
-        p11, _ := strconv.Atoi(pair1[1])
+		p10, _ := strconv.Atoi(pair1[0])
+		p11, _ := strconv.Atoi(pair1[1])
 
-        fmt.Println(p00, p01, p10, p11)
+		fmt.Println(p00, p01, p10, p11)
 
-        if p00 <= p10 && p01 >= p11 {
-            result += 1
-        } else if p10 <= p00 && p11 >= p01 {
-            result += 1
-        }
-    }
+		if p00 <= p10 && p01 >= p11 {
+			result += 1
+		} else if p10 <= p00 && p11 >= p01 {
+			result += 1
+		}
+	}
 
-    fmt.Println(result)
+	fmt.Println(result)
 }
 
 func two(input string) {
-    result := 0
+	result := 0
 
-    for _, line := range strings.Split(input, "\n") {
-        pairs := strings.Split(line, ",")
+	for _, line := range strings.Split(input, "\n") {
+		pairs := strings.Split(line, ",")
 
-        pair0 := strings.Split(pairs[0], "-")
-        pair1 := strings.Split(pairs[1], "-")
+		pair0 := strings.Split(pairs[0], "-")
+		pair1 := strings.Split(pairs[1], "-")
 
-        p00, _ := strconv.Atoi(pair0[0])
-        p01, _ := strconv.Atoi(pair0[1])
+		p00, _ := strconv.Atoi(pair0[0])
+		p01, _ := strconv.Atoi(pair0[1])
 
-        p10, _ := strconv.Atoi(pair1[0])
-        p11, _ := strconv.Atoi(pair1[1])
+		p10, _ := strconv.Atoi(pair1[0])
+		p11, _ := strconv.Atoi(pair1[1])
 
-        fmt.Println(p00, p01, p10, p11)
+		fmt.Println(p00, p01, p10, p11)
 
-        if p00 <= p10 && p01 >= p11 {
-            result += 1
-        } else if p10 <= p00 && p11 >= p01 {
-            result += 1
-        } else if p01 >= p10 && p00 <= p11 {
-            result += 1
-        } else if p11 >= p00 && p10 <= p01 {
-            result += 1
-        }
-    }
+		if p00 <= p10 && p01 >= p11 {
+			result += 1
+		} else if p10 <= p00 && p11 >= p01 {
+			result += 1
+		} else if p01 >= p10 && p00 <= p11 {
+			result += 1
+		} else if p11 >= p00 && p10 <= p01 {
+			result += 1
+		}
+	}
 
-    fmt.Println(result)
+	fmt.Println(result)
 }
 
 func main() {
-    content, err := ioutil.ReadFile("4.txt")
+	content, err := ioutil.ReadFile("4.txt")
 
-     if err != nil {
-          log.Fatal(err)
-     }
+	if err != nil {
+		log.Fatal(err)
+	}
 
-    input := string(content)
+	input := string(content)
 
-    // one(input)
-    two(input)
+	// one(input)
+	two(input)
 }
